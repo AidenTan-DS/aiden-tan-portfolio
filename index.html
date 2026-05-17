@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -282,34 +283,21 @@
     <section class="section visitor-section" id="visitors">
       <div class="section-heading">
         <p class="eyebrow">Visitor map</p>
-        <h2>Where visitors are coming from</h2>
-        <p>Anonymous country-level visit counts collected through Netlify geo data. No personal visitor information is displayed.</p>
+        <h2>Global Visitors</h2>
+        <p>Anonymous location-level pageviews collected from Netlify geo data and displayed as aggregated map points.</p>
       </div>
-      <div class="visitor-layout">
-        <div class="visitor-map" aria-label="World map showing visitor countries">
-          <svg viewBox="0 0 960 500" role="img" aria-labelledby="visitor-map-title">
-            <title id="visitor-map-title">Visitor countries map</title>
-            <g class="map-land" aria-hidden="true">
-              <path d="M90 168c44-38 113-56 174-42 36 8 55 25 86 36 40 14 82 5 121 17 31 10 54 35 51 65-4 44-55 50-86 72-35 25-51 76-95 81-37 4-55-31-86-41-36-12-80 10-113-12-32-22-23-66-48-94-23-26-53-52-4-82Z"/>
-              <path d="M438 104c35-20 94-22 133-8 39 13 54 46 88 62 45 21 109 7 148 38 35 28 25 81-17 97-34 13-67-8-99 5-38 15-40 62-78 75-39 13-72-28-107-31-41-4-85 41-121 18-34-22-1-69-15-102-13-32-61-45-63-82-2-30 48-46 131-72Z"/>
-              <path d="M483 267c44 2 78 38 79 87 1 53-34 104-77 105-45 1-71-53-60-105 8-39 25-88 58-87Z"/>
-              <path d="M690 332c27-22 83-19 104 7 23 28 8 72-24 86-38 17-91-15-94-52-1-15 3-30 14-41Z"/>
-            </g>
-            <g class="map-grid" aria-hidden="true">
-              <path d="M80 250h800M480 70v360M210 90c-52 89-52 231 0 320M750 90c52 89 52 231 0 320"/>
-            </g>
-            <g data-map-points></g>
-          </svg>
+      <div class="global-visitor-card">
+        <div class="global-visitor-total">
+          <strong><span data-visitor-total>--</span> Total Pageviews</strong>
         </div>
-        <div class="visitor-panel">
-          <div class="visitor-total">
-            <span data-visitor-total>--</span>
-            <p>Total country-level visits</p>
-          </div>
+        <div class="visitor-map" id="visitor-map" aria-label="World map showing visitor locations"></div>
+        <p class="visitor-since" data-visitor-since>Since first recorded visit</p>
+        <details class="visitor-details">
+          <summary>Top visitor countries</summary>
           <div class="visitor-list" data-visitor-list>
             <p class="muted">Loading visitor countries...</p>
           </div>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -332,6 +320,7 @@
     <p>&copy; <span data-year></span> Xingye (Aiden) Tan. Built for GitHub Pages.</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

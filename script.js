@@ -3,64 +3,67 @@ const navLinks = document.querySelector("[data-nav-links]");
 const year = document.querySelector("[data-year]");
 const visitorTotal = document.querySelector("[data-visitor-total]");
 const visitorList = document.querySelector("[data-visitor-list]");
-const mapPoints = document.querySelector("[data-map-points]");
+const visitorSince = document.querySelector("[data-visitor-since]");
+const visitorMapElement = document.querySelector("#visitor-map");
 
 const countryCoordinates = {
-  AR: [310, 382],
-  AT: [497, 183],
-  AU: [785, 384],
-  BE: [475, 174],
-  BG: [527, 200],
-  BR: [335, 330],
-  CA: [210, 128],
-  CH: [486, 188],
-  CL: [290, 392],
-  CN: [710, 210],
-  CO: [270, 292],
-  CZ: [500, 178],
-  DE: [492, 169],
-  DK: [493, 151],
-  EG: [535, 242],
-  ES: [455, 206],
-  FI: [525, 122],
-  FR: [470, 190],
-  GB: [450, 160],
-  GR: [520, 213],
-  HK: [720, 248],
-  ID: [705, 330],
-  IE: [430, 160],
-  IN: [650, 252],
-  IT: [497, 205],
-  JP: [785, 215],
-  KE: [555, 300],
-  KR: [755, 216],
-  MY: [690, 306],
-  MX: [205, 225],
-  NG: [498, 284],
-  NL: [480, 166],
-  NO: [493, 126],
-  NZ: [842, 425],
-  PE: [275, 330],
-  PH: [736, 286],
-  PL: [512, 172],
-  PT: [443, 209],
-  RO: [525, 190],
-  RU: [650, 132],
-  SA: [570, 250],
-  SE: [508, 130],
-  SG: [682, 304],
-  TH: [690, 274],
-  TR: [548, 210],
-  TW: [735, 247],
-  UA: [548, 176],
-  AE: [590, 252],
-  US: [220, 190],
-  VN: [705, 280],
-  ZA: [520, 382],
-  ZZ: [480, 250],
+  AR: [-38.42, -63.62],
+  AT: [47.52, 14.55],
+  AU: [-25.27, 133.78],
+  BE: [50.5, 4.47],
+  BG: [42.73, 25.49],
+  BR: [-14.24, -51.93],
+  CA: [56.13, -106.35],
+  CH: [46.82, 8.23],
+  CL: [-35.68, -71.54],
+  CN: [35.86, 104.2],
+  CO: [4.57, -74.3],
+  CZ: [49.82, 15.47],
+  DE: [51.17, 10.45],
+  DK: [56.26, 9.5],
+  EG: [26.82, 30.8],
+  ES: [40.46, -3.75],
+  FI: [61.92, 25.75],
+  FR: [46.23, 2.21],
+  GB: [55.38, -3.44],
+  GR: [39.07, 21.82],
+  HK: [22.32, 114.17],
+  ID: [-0.79, 113.92],
+  IE: [53.41, -8.24],
+  IN: [20.59, 78.96],
+  IT: [41.87, 12.57],
+  JP: [36.2, 138.25],
+  KE: [-0.02, 37.91],
+  KR: [35.91, 127.77],
+  MY: [4.21, 101.98],
+  MX: [23.63, -102.55],
+  NG: [9.08, 8.68],
+  NL: [52.13, 5.29],
+  NO: [60.47, 8.47],
+  NZ: [-40.9, 174.89],
+  PE: [-9.19, -75.02],
+  PH: [12.88, 121.77],
+  PL: [51.92, 19.15],
+  PT: [39.4, -8.22],
+  RO: [45.94, 24.97],
+  RU: [61.52, 105.32],
+  SA: [23.89, 45.08],
+  SE: [60.13, 18.64],
+  SG: [1.35, 103.82],
+  TH: [15.87, 100.99],
+  TR: [38.96, 35.24],
+  TW: [23.7, 120.96],
+  UA: [48.38, 31.17],
+  AE: [23.42, 53.85],
+  US: [37.09, -95.71],
+  VN: [14.06, 108.28],
+  ZA: [-30.56, 22.94],
+  ZZ: [20, 0],
 };
 
 const countryDisplay = new Intl.DisplayNames(["en"], { type: "region" });
+let visitorMap;
+let markerLayer;
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -90,13 +93,93 @@ const getCountryName = (code, fallback) => {
   }
 };
 
+const formatDate = (value) => {
+  if (!value) return "Since first recorded visit";
+
+  return `Since ${new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(value))}`;
+};
+
+const initVisitorMap = () => {
+  if (!visitorMapElement || typeof L === "undefined") return null;
+  if (visitorMap) return visitorMap;
+
+  visitorMap = L.map(visitorMapElement, {
+    attributionControl: false,
+    maxBounds: [[-85, -180], [85, 180]],
+    maxBoundsViscosity: 0.9,
+    minZoom: 1,
+    worldCopyJump: true,
+  }).setView([20, 0], 1);
+
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    maxZoom: 5,
+    noWrap: true,
+  }).addTo(visitorMap);
+
+  markerLayer = L.layerGroup().addTo(visitorMap);
+  return visitorMap;
+};
+
+const locationFromCountry = (country) => {
+  const [latitude, longitude] = countryCoordinates[country.code] || countryCoordinates.ZZ;
+
+  return {
+    id: country.code,
+    label: getCountryName(country.code, country.name),
+    countryName: getCountryName(country.code, country.name),
+    latitude,
+    longitude,
+    visits: country.visits,
+  };
+};
+
+const getLocations = (stats, countries) => {
+  const locations = Object.values(stats.locations || {})
+    .filter((location) => Number.isFinite(location.latitude) && Number.isFinite(location.longitude));
+
+  if (locations.length) {
+    return locations.sort((a, b) => b.visits - a.visits);
+  }
+
+  return countries.map(locationFromCountry);
+};
+
+const renderMapPoints = (locations) => {
+  const map = initVisitorMap();
+  if (!map || !markerLayer) return;
+
+  markerLayer.clearLayers();
+
+  locations.forEach((location) => {
+    const radius = Math.min(18, 7 + Math.sqrt(location.visits) * 3);
+    const marker = L.circleMarker([location.latitude, location.longitude], {
+      radius,
+      color: "#ffffff",
+      weight: 2,
+      fillColor: "#ff5a45",
+      fillOpacity: 0.9,
+    }).bindTooltip(`${location.label}: ${location.visits} pageviews`);
+
+    marker.addTo(markerLayer);
+  });
+};
+
 const renderVisitorStats = (stats) => {
   const countries = Object.values(stats.countries || {})
     .sort((a, b) => b.visits - a.visits)
-    .slice(0, 8);
+    .slice(0, 10);
+  const locations = getLocations(stats, countries);
 
   if (visitorTotal) {
-    visitorTotal.textContent = String(stats.totalVisits || 0);
+    visitorTotal.textContent = Number(stats.totalVisits || 0).toLocaleString();
+  }
+
+  if (visitorSince) {
+    visitorSince.textContent = formatDate(stats.startedAt || stats.updatedAt);
   }
 
   if (visitorList) {
@@ -104,50 +187,25 @@ const renderVisitorStats = (stats) => {
       ? countries.map((country) => `
           <div class="visitor-country">
             <strong>${getCountryName(country.code, country.name)}</strong>
-            <span>${country.visits}</span>
+            <span>${country.visits.toLocaleString()}</span>
           </div>
         `).join("")
       : '<p class="muted">No visits recorded yet.</p>';
   }
 
-  if (mapPoints) {
-    const maxVisits = Math.max(1, ...countries.map((country) => country.visits));
-    mapPoints.innerHTML = countries.map((country) => {
-      const [x, y] = countryCoordinates[country.code] || countryCoordinates.ZZ;
-      const radius = 7 + Math.round((country.visits / maxVisits) * 18);
-      const label = country.code === "ZZ" ? "Unknown" : country.code;
-
-      return `
-        <g>
-          <circle class="visitor-dot" cx="${x}" cy="${y}" r="${radius}">
-            <title>${getCountryName(country.code, country.name)}: ${country.visits} visits</title>
-          </circle>
-          <text class="visitor-label" x="${x + radius + 6}" y="${y + 4}">${label}</text>
-        </g>
-      `;
-    }).join("");
-  }
+  renderMapPoints(locations);
 };
 
 const loadVisitorStats = async () => {
-  if (!visitorTotal && !visitorList && !mapPoints) return;
+  if (!visitorTotal && !visitorList && !visitorMapElement) return;
 
   try {
-    const todayKey = new Date().toISOString().slice(0, 10);
-    const storageKey = "aiden-portfolio-visitor-date";
-    const shouldRecord = localStorage.getItem(storageKey) !== todayKey;
-    const response = await fetch("/api/visitor-stats", {
-      method: shouldRecord ? "POST" : "GET",
-    });
+    initVisitorMap();
+    const response = await fetch("/api/visitor-stats", { method: "POST" });
 
     if (!response.ok) throw new Error("Visitor stats unavailable");
 
-    const stats = await response.json();
-    renderVisitorStats(stats);
-
-    if (shouldRecord) {
-      localStorage.setItem(storageKey, todayKey);
-    }
+    renderVisitorStats(await response.json());
   } catch {
     if (visitorList) {
       visitorList.innerHTML = '<p class="muted">Visitor map is available after the Netlify function deploys.</p>';
