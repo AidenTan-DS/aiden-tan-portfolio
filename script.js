@@ -116,9 +116,69 @@ const loadLeetCode = async () => {
     renderLeetCode(await response.json());
   } catch {
     lcRoot.querySelector("[data-lc-recent]").innerHTML =
-      '<li class="dim">Live stats are unavailable right now &mdash; see the profile link above.</li>';
+      '<li class="dim">Live stats are unavailable right now. See the profile link above.</li>';
   }
 };
+
+/* ---------- Robot mascot ---------- */
+
+const bot = document.querySelector("[data-bot]");
+const botBubble = document.querySelector("[data-bot-bubble]");
+const BOT_ACTIVITIES = [
+  { name: "lift", say: "never skip leg day 🏋️" },
+  { name: "cook", say: "cooking something good 🍳" },
+  { name: "photo", say: "say cheese 📷" },
+];
+let botIndex = -1;
+let botCycle;
+let bubbleTimer;
+let moodTimer;
+
+const botSay = (text, ms = 2200) => {
+  if (!botBubble) return;
+  botBubble.textContent = text;
+  botBubble.classList.add("is-visible");
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(() => botBubble.classList.remove("is-visible"), ms);
+};
+
+const botDo = (index, { speak = false } = {}) => {
+  if (!bot) return;
+  bot.classList.remove(...BOT_ACTIVITIES.map((activity) => `do-${activity.name}`));
+  botIndex = index;
+  const activity = BOT_ACTIVITIES[index];
+  if (!activity) return;
+  bot.classList.add(`do-${activity.name}`);
+  if (speak) botSay(activity.say);
+};
+
+const botMood = (mood) => {
+  if (!bot) return;
+  bot.classList.remove("is-happy", "is-confused");
+  void bot.offsetWidth;
+  bot.classList.add(`is-${mood}`);
+  clearTimeout(moodTimer);
+  moodTimer = setTimeout(() => bot.classList.remove(`is-${mood}`), 1400);
+};
+
+// Idle, then one hobby, then idle again, cycling through the hobbies.
+const startBotCycle = () => {
+  let step = 0;
+  clearInterval(botCycle);
+  botCycle = setInterval(() => {
+    step += 1;
+    botDo(step % 2 ? (botIndex + 1) % BOT_ACTIVITIES.length : -1);
+  }, 4200);
+};
+
+if (bot && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  startBotCycle();
+}
+
+bot?.addEventListener("click", () => {
+  botDo((botIndex + 1) % BOT_ACTIVITIES.length, { speak: true });
+  startBotCycle();
+});
 
 /* ---------- Interactive terminal ---------- */
 
@@ -182,11 +242,15 @@ const terminalCommands = {
     "  <b>leetcode</b>    <b>contact</b>",
     "  <b>resume</b>      preview my resume (PDF)",
     "  <b>github</b>  <b>linkedin</b>  <b>email</b>",
-    "  <b>ls</b>  <b>clear</b>  <b>date</b>",
+    "  <b>hobbies</b>  <b>ls</b>  <b>clear</b>  <b>date</b>",
   ].join("\n"),
   whoami: () => "xingye_tan",
+  hobbies: () => {
+    botDo(0, { speak: true });
+    return "off the clock: lifting 🏋️  cooking 🍳  photography 📷\n(click the robot to see)";
+  },
   about: () =>
-    "M.S. Data Science @ University of Washington.\nI build ML systems end to end: data pipelines, training,\nevaluation, and the infrastructure that keeps them honest.",
+    "M.S. Data Science @ University of Washington.\nI like infrastructure and figuring out the logic underneath:\nclusters, data pipelines, and the systems models train on.",
   ibm: () => [
     "IBM watsonx Assistant · Speech Team · Jun-Sep 2026",
     "  ▸ streaming Conformer RNN-T for French ASR",
@@ -248,9 +312,10 @@ const runCommand = (raw) => {
 
   const handler = terminalCommands[command] || terminalCommands[command.split(/\s+/)[0]];
   printLine(
-    handler ? handler() : `command not found: ${escapeHtml(input)} &mdash; try <b>help</b>`,
+    handler ? handler() : `command not found: ${escapeHtml(input)}. Try <b>help</b>`,
     handler ? "out" : "out err",
   );
+  botMood(handler ? "happy" : "confused");
 };
 
 if (terminal && terminalLog && terminalForm && terminalInput) {
@@ -403,7 +468,7 @@ document.querySelectorAll(".arch").forEach((details) => {
 /* ---------- Scroll reveal ---------- */
 
 const revealTargets = document.querySelectorAll(
-  ".reveal, .expertise-grid article, .logo-wall, .timeline-item, .contact-section, .about-layout",
+  ".reveal, .logo-wall, .timeline-item, .contact-section, .about-layout",
 );
 
 if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

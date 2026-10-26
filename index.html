@@ -3,8 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Xingye Tan - AI/ML portfolio, machine learning engineering, data science research, and applied LLM systems.">
+  <meta name="description" content="Xingye Tan: M.S. Data Science @ University of Washington. ML systems, infrastructure, and speech recognition.">
   <title>Xingye Tan | AI/ML Portfolio</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aiden-tan.netlify.app/">
+  <meta property="og:title" content="Xingye Tan | AI/ML Portfolio">
+  <meta property="og:description" content="M.S. Data Science @ University of Washington. ML systems, infrastructure, and speech recognition.">
+  <meta property="og:image" content="https://aiden-tan.netlify.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Xingye Tan, M.S. Data Science at University of Washington, with a small robot lifting a dumbbell">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,18 +56,72 @@
   <main id="top">
     <section class="hero section">
       <div class="hero-copy">
-        <p class="eyebrow">AI/ML Engineer Intern @ IBM watsonx Assistant Speech · 2026</p>
         <h1>Xingye Tan</h1>
-        <p class="hero-title">AI / ML Engineer · M.S. Data Science @ University of Washington</p>
-        <p class="hero-text">I build practical AI/ML systems that connect modeling, software engineering, and product thinking across LLMs, computer vision, analytics, and production-aware workflows.</p>
+        <p class="hero-title">M.S. Data Science @ University of Washington</p>
+        <p class="hero-text">I build ML systems end to end: data, training, evaluation, and deployment.</p>
         <div class="hero-actions" aria-label="Profile links">
-          <a class="button primary" href="assets/Xingye_Tan_Resume.pdf" target="_blank" rel="noreferrer" data-resume-link>Resume</a>
-          <a class="button" href="#projects">View Work</a>
-          <a class="button" href="https://github.com/AidenTan-DS" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="button" href="https://www.linkedin.com/in/xingye-tan-817b7a225" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="button" href="mailto:xtan4@uw.edu">Email</a>
+          <a class="button primary" href="assets/Xingye_Tan_Resume.pdf" target="_blank" rel="noreferrer" data-resume-link><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"/></svg>Resume</a>
+          <a class="button" href="#experience">Experience</a>
+          <a class="button" href="#projects">Projects</a>
+          <a class="button icon-button" href="https://github.com/AidenTan-DS" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
+          <a class="button icon-button" href="https://www.linkedin.com/in/xingye-tan-817b7a225" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a class="button icon-button" href="mailto:xtan4@uw.edu" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></a>
         </div>
       </div>
+      <div class="hero-visual">
+        <button class="bot" type="button" data-bot aria-label="Robot mascot: click to see what I do off the clock">
+          <span class="bot-bubble" data-bot-bubble aria-live="polite"></span>
+          <svg viewBox="0 0 140 130" aria-hidden="true">
+            <g class="bot-antenna">
+              <line x1="70" y1="24" x2="70" y2="10" />
+              <circle cx="70" cy="8" r="4" />
+            </g>
+            <rect class="bot-head" x="42" y="24" width="56" height="40" rx="11" />
+            <rect class="bot-screen" x="48" y="30" width="44" height="28" rx="7" />
+            <g class="bot-eyes">
+              <rect class="bot-eye" x="57" y="37" width="7" height="10" rx="2.5" />
+              <rect class="bot-eye" x="76" y="37" width="7" height="10" rx="2.5" />
+            </g>
+            <g class="bot-happy">
+              <path d="M56 44 q4 -6 8 0 M75 44 q4 -6 8 0" />
+            </g>
+            <g class="bot-confused">
+              <path d="M56 40 l8 4 M76 44 l8 -4" />
+              <text x="100" y="22">?</text>
+            </g>
+            <path class="bot-mouth" d="M64 51 q6 4 12 0" />
+            <rect class="bot-neck" x="65" y="64" width="10" height="5" rx="2" />
+            <rect class="bot-body" x="48" y="69" width="44" height="34" rx="9" />
+            <circle class="bot-light" cx="70" cy="83" r="4" />
+            <rect class="bot-leg" x="54" y="103" width="11" height="13" rx="4" />
+            <rect class="bot-leg" x="75" y="103" width="11" height="13" rx="4" />
+            <g class="bot-arm bot-arm-left">
+              <rect x="37" y="72" width="9" height="24" rx="4.5" />
+            </g>
+            <g class="bot-arm bot-arm-right">
+              <rect x="94" y="72" width="9" height="24" rx="4.5" />
+              <g class="prop prop-lift">
+                <rect x="91" y="95" width="15" height="3" rx="1.5" />
+                <rect x="87" y="90" width="5" height="13" rx="1.5" />
+                <rect x="105" y="90" width="5" height="13" rx="1.5" />
+              </g>
+              <g class="prop prop-cook" transform="rotate(35 98.5 96)">
+                <rect x="98" y="94.5" width="11" height="3" rx="1.5" />
+                <path class="pan" d="M108 93 h28 q-2 9 -14 9 q-12 0 -14 -9 z" />
+                <g class="egg">
+                  <ellipse cx="122" cy="91" rx="8" ry="4" />
+                  <circle cx="122" cy="90.5" r="3" />
+                </g>
+              </g>
+              <g class="prop prop-photo" transform="rotate(125 98.5 96)">
+                <rect x="91" y="87" width="24" height="16" rx="3.5" />
+                <rect x="95" y="83.5" width="7" height="4.5" rx="1" />
+                <circle class="lens" cx="103" cy="95" r="5" />
+                <circle class="flash" cx="103" cy="95" r="7" />
+              </g>
+            </g>
+          </svg>
+        </button>
       <aside class="hero-panel terminal" aria-label="Profile summary">
         <div class="terminal-bar" aria-hidden="true">
           <span></span><span></span><span></span>
@@ -69,7 +132,7 @@
             <p><span class="prompt">$</span> whoami</p>
             <p class="out">xingye_tan</p>
             <p><span class="prompt">$</span> cat role.txt</p>
-            <p class="out">AI/ML Engineer · M.S. Data Science @ UW</p>
+            <p class="out">M.S. Data Science @ UW</p>
             <p><span class="prompt">$</span> ls focus/</p>
             <p class="out focus-list"><span>speech_asr/</span><span>llm_pipelines/</span><span>computer_vision/</span><span>mlops/</span></p>
             <p class="out dim">Type <b>help</b> and press Enter to explore.</p>
@@ -80,6 +143,7 @@
           </form>
         </div>
       </aside>
+      </div>
 
     </section>
 
@@ -87,11 +151,11 @@
       <div class="about-layout">
         <div class="reveal section-heading">
           <p class="eyebrow">About me</p>
-          <h2>AI/ML builder with a data science backbone.</h2>
+          <h2>I like knowing how things work underneath.</h2>
         </div>
         <div class="about-copy">
-          <p>I am Xingye Tan, a data science master's student at the University of Washington focused on turning machine learning ideas into reliable, usable systems. My work spans LLM pipelines, computer vision, clustering, EV charging analytics, and scalable data workflows.</p>
-          <p>I like projects where the model is only one part of the job: clean data pipelines, evaluation, reproducible experiments, deployment, and a thoughtful user-facing interface matter just as much. That is why my portfolio mixes research work with software-oriented projects using tools like Docker, GitHub Actions, FastAPI, Streamlit, MLflow, and cloud/data platforms.</p>
+          <p>I'm drawn to infrastructure: the clusters, data pipelines, and training systems that models run on. I like digging until I understand why things behave the way they do.</p>
+          <p>At IBM, that meant tracing a training run that looked healthy but had loaded only 4 of 336 pretrained tensors, and a CPU-thread mismatch that turned a 5.3-hour job into 78 minutes.</p>
         </div>
       </div>
     </section>
@@ -100,28 +164,25 @@
       <div class="reveal section-heading">
         <p class="eyebrow">Experience</p>
         <h2>Industry &amp; Research</h2>
-        <p>Speech recognition, LLM pipelines, survival analysis, and the data engineering behind them.</p>
       </div>
       <div class="project-grid">
         <article class="reveal project-card featured">
-          <div class="project-topline">
-            <span>Speech Recognition + Data Pipeline</span>
-            <span>IBM</span>
+          <div class="org-head">
+            <span class="org org-ibm" aria-label="IBM">IBM</span>
+            <div>
+              <h3>AI/ML Engineer Intern</h3>
+              <p class="role-line">IBM watsonx Assistant · Speech Team · Jun - Sep 2026</p>
+            </div>
           </div>
-          <p class="role-line">AI/ML Engineer Intern · IBM watsonx Assistant, Speech Team · Jun 2026 - Sep 2026</p>
-          <h3>Streaming French ASR</h3>
-          <ul class="bullets">
-            <li>Built a streaming Conformer RNN-T for low-latency French speech recognition, lowering WER on all 15 benchmarks (~70% average relative reduction), e.g. UPS Clean 34.5% &rarr; 6.1% and Recast Twilio 76.6% &rarr; 12.0%.</li>
-            <li>Designed the data pipeline behind it: filtered 5.69M corpus entries and built 7 augmentation branches into 4.15M training samples (5,030+ hours), extracting 143GB of features with zero data-feature mismatch.</li>
-          </ul>
-          <div class="stats-row">
-            <strong>15 / 15 benchmarks improved</strong>
-            <strong>~70% WER reduction</strong>
-            <strong>5,030+ hours</strong>
-            <strong>143GB features</strong>
+          <p class="card-lede">Streaming Conformer RNN-T for low-latency French speech recognition.</p>
+          <div class="big-stats">
+            <div><b>~70%</b><span>avg. WER reduction</span></div>
+            <div><b>15 / 15</b><span>benchmarks improved</span></div>
+            <div><b>5,030+ h</b><span>training audio</span></div>
+            <div><b>5.3h &rarr; 78m</b><span>feature extraction</span></div>
           </div>
           <div class="tags">
-            <span>ASR</span><span>Conformer RNN-T</span><span>Streaming</span><span>Data Augmentation</span><span>Feature Extraction</span>
+            <span>ASR</span><span>Conformer RNN-T</span><span>Multi-GPU</span><span>LSF cluster</span><span>Data pipeline</span>
           </div>
           <details class="arch">
             <summary>view architecture</summary>
@@ -130,21 +191,22 @@
         </article>
 
         <article class="reveal project-card">
-          <div class="project-topline">
-            <span>LLM + ETL + NLP</span>
-            <a href="https://github.com/AidenTan-DS/clinical-trials-llm" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="org-head">
+            <span class="org org-psu" aria-label="Penn State">PSU</span>
+            <div>
+              <h3>Clinical Trial LLM Pipeline</h3>
+              <p class="role-line">Penn State Statistics · 2024 - 2025</p>
+            </div>
+            <a class="card-link" href="https://github.com/AidenTan-DS/clinical-trials-llm" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
           </div>
-          <p class="role-line">Research Assistant · Penn State, Department of Statistics · Jun 2024 - May 2025</p>
-          <h3>Clinical Trial LLM Pipeline</h3>
-          <p>Architected an LLM-integrated ETL system for extracting, normalizing, and retrieving treatment protocol knowledge from ClinicalTrials.gov.</p>
+          <p class="card-lede">LLM-powered ETL that turns 22K+ trial records into a searchable knowledge base.</p>
           <div class="stats-row">
-            <strong>22K+ records</strong>
             <strong>93% parsing</strong>
-            <strong>5x query speed</strong>
-            <strong>63% to 95% matching</strong>
+            <strong>63% &rarr; 95% matching</strong>
+            <strong>5x faster queries</strong>
           </div>
-          <div class="tags">
-            <span>Python</span><span>LLM Evaluation</span><span>RAG-ready KB</span><span>Word2Vec</span><span>MLOps</span>
+          <div class="tags logo-tags">
+            <span><img src="https://cdn.simpleicons.org/python" alt="">Python</span><span>LLM APIs</span><span>Word2Vec</span><span>RAG</span>
           </div>
           <details class="arch">
             <summary>view architecture</summary>
@@ -153,20 +215,20 @@
         </article>
 
         <article class="reveal project-card">
-          <div class="project-topline">
-            <span>Data Engineering + Survival Analysis</span>
-            <span>Dashboard</span>
+          <div class="org-head">
+            <span class="org org-psu" aria-label="Penn State">PSU</span>
+            <div>
+              <h3>SEER Melanoma Survival Analysis</h3>
+              <p class="role-line">Penn State Statistics · 2023</p>
+            </div>
           </div>
-          <p class="role-line">Research Assistant · Penn State, Department of Statistics · Aug 2023 - Dec 2023</p>
-          <h3>SEER Melanoma Survival Analysis</h3>
-          <p>Built Databricks-based ETL pipelines and an interactive Streamlit dashboard for survival patterns across melanoma therapies.</p>
+          <p class="card-lede">Databricks ETL and a Streamlit dashboard for survival across melanoma therapies.</p>
           <div class="stats-row">
             <strong>390K+ records</strong>
-            <strong>2000 to 2020</strong>
-            <strong>~15 months lift</strong>
+            <strong>2000 - 2020</strong>
           </div>
-          <div class="tags">
-            <span>Databricks</span><span>Spark SQL</span><span>PySpark</span><span>R</span><span>Streamlit</span>
+          <div class="tags logo-tags">
+            <span><img src="https://cdn.simpleicons.org/databricks" alt="">Databricks</span><span><img src="https://cdn.simpleicons.org/apachespark" alt="">PySpark</span><span><img src="https://cdn.simpleicons.org/r/4f8fdc" alt="">R</span><span><img src="https://cdn.simpleicons.org/streamlit" alt="">Streamlit</span>
           </div>
           <details class="arch">
             <summary>view architecture</summary>
@@ -178,26 +240,27 @@
 
     <section class="section project-section" id="projects">
       <div class="reveal section-heading">
-        <p class="eyebrow">Engineering projects</p>
-        <h2>Software & ML Projects</h2>
-        <p>Hands-on systems work across medical imaging, EV analytics, deployment, and interpretable machine learning.</p>
+        <p class="eyebrow">Projects</p>
+        <h2>Software &amp; ML Projects</h2>
       </div>
       <div class="project-grid">
         <article class="reveal project-card accent">
-          <div class="project-topline">
-            <span>Medical Imaging</span>
-            <a href="https://github.com/AidenTan-DS/rsna-2024-lumbar-spine" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="org-head">
+            <span class="org org-icon"><img src="https://cdn.simpleicons.org/kaggle" alt=""></span>
+            <div>
+              <h3>RSNA 2024 Lumbar Spine</h3>
+              <p class="role-line">Kaggle competition · 2024</p>
+            </div>
+            <a class="card-link" href="https://github.com/AidenTan-DS/rsna-2024-lumbar-spine" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
           </div>
-          <h3>RSNA 2024 Lumbar Spine Classification</h3>
-          <p>Designed a multi-resolution YOLOv8 pipeline and two-branch ensemble architecture for degenerative spine MRI classification.</p>
+          <p class="card-lede">Multi-resolution YOLOv8 + two-branch ensemble for spine MRI grading.</p>
           <div class="stats-row">
-            <strong>Kaggle Silver</strong>
-            <strong>Top 2.5%</strong>
-            <strong>13% log-loss gain</strong>
-            <strong>18% sensitivity gain</strong>
+            <strong class="medal">&#129352; Silver · Top 2.5%</strong>
+            <strong>-13% log-loss</strong>
+            <strong>+18% severe recall</strong>
           </div>
-          <div class="tags">
-            <span>PyTorch</span><span>YOLOv8</span><span>CNN</span><span>MLflow</span><span>Ensemble</span>
+          <div class="tags logo-tags">
+            <span><img src="https://cdn.simpleicons.org/pytorch" alt="">PyTorch</span><span><img src="https://cdn.simpleicons.org/ultralytics/ffffff" alt="">YOLOv8</span><span><img src="https://cdn.simpleicons.org/mlflow" alt="">MLflow</span>
           </div>
           <details class="arch">
             <summary>view architecture</summary>
@@ -206,24 +269,22 @@
         </article>
 
         <article class="reveal project-card software-card">
-          <div class="project-topline">
-            <span>Geospatial ML + Software Engineering</span>
-            <a href="https://github.com/AidenTan-DS/E-Valuating_Seattle_Charging" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="org-head">
+            <span class="org org-icon"><img src="https://cdn.simpleicons.org/streamlit" alt=""></span>
+            <div>
+              <h3>E-Valuating Seattle Charging</h3>
+              <p class="role-line">UW team project</p>
+            </div>
+            <a class="card-link" href="https://github.com/AidenTan-DS/E-Valuating_Seattle_Charging" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
           </div>
-          <h3>E-Valuating Seattle Charging</h3>
-          <p>Team project: a Streamlit app that scores how well Seattle's existing EV chargers cover demand by ZIP code, then predicts where new stations should go on a 500m grid &mdash; backed by a tested, CI-checked Python codebase.</p>
+          <p class="card-lede">Scores Seattle's EV charger coverage and predicts where new stations should go.</p>
           <div class="stats-row">
-            <strong>5 public datasets</strong>
-            <strong>500m prediction grid</strong>
-            <strong>CI on Python 3.11-3.13</strong>
-            <strong>pytest + Codecov</strong>
+            <strong>5 datasets</strong>
+            <strong>500m grid</strong>
+            <strong>CI + tests</strong>
           </div>
           <div class="tags logo-tags">
-            <span><img src="https://cdn.simpleicons.org/githubactions/2088ff" alt="">GitHub Actions</span>
-            <span><img src="https://cdn.simpleicons.org/streamlit/ff4b4b" alt="">Streamlit</span>
-            <span><img src="https://cdn.simpleicons.org/plotly/3f4f75" alt="">Plotly</span>
-            <span><img src="https://cdn.simpleicons.org/scikitlearn/f7931e" alt="">scikit-learn</span>
-            <span>GeoPandas</span>
+            <span><img src="https://cdn.simpleicons.org/githubactions" alt="">GitHub Actions</span><span><img src="https://cdn.simpleicons.org/scikitlearn" alt="">scikit-learn</span><span><img src="https://cdn.simpleicons.org/plotly/ffffff" alt="">Plotly</span><span>GeoPandas</span>
           </div>
           <details class="arch">
             <summary>view architecture</summary>
@@ -232,20 +293,25 @@
         </article>
 
         <article class="reveal project-card">
-          <div class="project-topline">
-            <span>Clustering + Visualization</span>
-            <span class="topline-links"><a href="https://aidentan-ds-bank-marketing-clustering-srcapp-streamlit-zj8e63.streamlit.app" target="_blank" rel="noreferrer">Live demo</a><a href="https://github.com/AidenTan-DS/bank-marketing-clustering" target="_blank" rel="noreferrer">GitHub</a></span>
+          <div class="org-head">
+            <span class="org org-icon"><img src="https://cdn.simpleicons.org/scikitlearn" alt=""></span>
+            <div>
+              <h3>Bank Marketing Clustering</h3>
+              <p class="role-line">Clustering from scratch</p>
+            </div>
+            <span class="card-links">
+              <a class="card-link demo" href="https://aidentan-ds-bank-marketing-clustering-srcapp-streamlit-zj8e63.streamlit.app" target="_blank" rel="noreferrer">demo &nearr;</a>
+              <a class="card-link" href="https://github.com/AidenTan-DS/bank-marketing-clustering" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
+            </span>
           </div>
-          <h3>Bank Marketing Clustering Pipeline</h3>
-          <p>Implemented k-means and bisecting k-means from scratch on 10 standardized numeric features, benchmarked them against scikit-learn k-means++ for k = 2-10, and deployed an interactive Streamlit explorer.</p>
+          <p class="card-lede">K-means and bisecting k-means from scratch, benchmarked against scikit-learn.</p>
           <div class="stats-row">
             <strong>40K records</strong>
-            <strong>58.8% variance (3 PCs)</strong>
-            <strong>13% lower SSE</strong>
-            <strong>13% higher silhouette</strong>
+            <strong>-13% SSE</strong>
+            <strong>+13% silhouette</strong>
           </div>
-          <div class="tags">
-            <span>PCA</span><span>K-Means</span><span>Bisecting K-Means</span><span>Streamlit</span><span>scikit-learn</span>
+          <div class="tags logo-tags">
+            <span><img src="https://cdn.simpleicons.org/python" alt="">Python</span><span><img src="https://cdn.simpleicons.org/streamlit" alt="">Streamlit</span><span>PCA</span>
           </div>
           <details class="arch">
             <summary>view architecture</summary>
@@ -257,42 +323,23 @@
 
     <section class="section expertise-section" id="expertise">
       <div class="reveal section-heading">
-        <p class="eyebrow">Technical stack</p>
-        <h2>AI / ML + Software Toolkit</h2>
-        <p>A practical stack for modeling, evaluating, deploying, and maintaining data-driven systems from research prototypes to production-aware workflows.</p>
+        <p class="eyebrow">Stack</p>
+        <h2>Tools I use</h2>
       </div>
       <div class="logo-wall" aria-label="Software and ML tools">
-        <span><img src="https://cdn.simpleicons.org/python/3776ab" alt="">Python</span>
-        <span><img src="https://cdn.simpleicons.org/pytorch/ee4c2c" alt="">PyTorch</span>
-        <span><img src="https://cdn.simpleicons.org/scikitlearn/f7931e" alt="">scikit-learn</span>
-        <span><img src="https://cdn.simpleicons.org/fastapi/009688" alt="">FastAPI</span>
-        <span><img src="https://cdn.simpleicons.org/docker/2496ed" alt="">Docker</span>
-        <span><img src="https://cdn.simpleicons.org/githubactions/2088ff" alt="">GitHub Actions</span>
-        <span><img src="https://cdn.simpleicons.org/mlflow/0194e2" alt="">MLflow</span>
-        <span><img src="https://cdn.simpleicons.org/databricks/ff3621" alt="">Databricks</span>
-        <span>AWS</span>
-        <span><img src="https://cdn.simpleicons.org/streamlit/ff4b4b" alt="">Streamlit</span>
+        <span><img src="https://cdn.simpleicons.org/python" alt="">Python</span>
+        <span><img src="https://cdn.simpleicons.org/pytorch" alt="">PyTorch</span>
+        <span><img src="https://cdn.simpleicons.org/tensorflow" alt="">TensorFlow</span>
+        <span><img src="https://cdn.simpleicons.org/scikitlearn" alt="">scikit-learn</span>
+        <span><img src="https://cdn.simpleicons.org/mysql/4fa3d1" alt="">SQL</span>
+        <span><img src="https://cdn.simpleicons.org/apachespark" alt="">PySpark</span>
+        <span><img src="https://cdn.simpleicons.org/databricks" alt="">Databricks</span>
+        <span><img src="https://cdn.simpleicons.org/mlflow" alt="">MLflow</span>
+        <span><img src="https://cdn.simpleicons.org/docker" alt="">Docker</span>
+        <span><img src="https://cdn.simpleicons.org/githubactions" alt="">GitHub Actions</span>
       </div>
-      <div class="expertise-grid">
-        <article>
-          <h3>Machine Learning</h3>
-          <p>Linear, logistic, and LASSO regression; XGBoost, Random Forest, AdaBoost, clustering, PCA, model evaluation.</p>
-        </article>
-        <article>
-          <h3>Deep Learning</h3>
-          <p>CNNs, RNNs, PyTorch, model training, validation, ensemble design, and multi-resolution workflows.</p>
-        </article>
-        <article>
-          <h3>LLMs & NLP</h3>
-          <p>LLM APIs, LLM evaluation, prompt engineering, embeddings, semantic matching, RAG-ready knowledge bases, fuzzy matching.</p>
-        </article>
-        <article>
-          <h3>AI Engineering Tools</h3>
-          <p>Codex, Claude Code, Cursor, FastAPI, Flask, Docker, GitHub Actions, MLflow, reproducible ML pipelines.</p>
-        </article>
-      </div>
-      <div class="skill-strip" aria-label="Additional tools">
-        <span>SQL</span><span>MySQL</span><span>PySpark</span><span>Databricks</span><span>AWS S3</span><span>AWS EC2</span><span>Hadoop</span><span>Tableau</span><span>Matplotlib</span><span>ggplot2</span><span>A/B Testing</span><span>ANOVA</span><span>Causal Inference</span>
+      <div class="skill-strip" aria-label="Additional skills">
+        <span>Speech recognition</span><span>LLM APIs &amp; RAG</span><span>CNN / RNN</span><span>XGBoost</span><span>Multi-GPU training</span><span>AWS S3 / EC2</span><span>Pandas</span><span>R</span><span>Tableau</span><span>A/B testing</span>
       </div>
     </section>
 
@@ -303,16 +350,24 @@
       </div>
       <div class="timeline">
         <article class="timeline-item">
-          <span class="timeline-date">Expected March 2027</span>
-          <h3>University of Washington</h3>
-          <p>M.S. in Data Science</p>
-          <p class="muted">Merit & Opportunity Scholarship of $20,041 for the 2025-26 academic year. Coursework in statistical machine learning, experimental design, data visualization, data management, scalable systems, and software design for data science.</p>
+          <div class="org-head">
+            <span class="org org-uw" aria-label="University of Washington">W</span>
+            <div>
+              <h3>University of Washington</h3>
+              <p class="role-line">M.S. Data Science · Expected Mar 2027</p>
+            </div>
+          </div>
+          <p class="muted">$20,041 Merit &amp; Opportunity Scholarship</p>
         </article>
         <article class="timeline-item">
-          <span class="timeline-date">Aug 2021 - May 2025</span>
-          <h3>Penn State University</h3>
-          <p>B.S. in Statistics & Mathematics</p>
-          <p class="muted">GPA 3.85 / 4.0 with concentrations in computational mathematics and statistics & computing.</p>
+          <div class="org-head">
+            <span class="org org-psu" aria-label="Penn State">PSU</span>
+            <div>
+              <h3>Penn State University</h3>
+              <p class="role-line">B.S. Statistics &amp; Mathematics · 2021 - 2025</p>
+            </div>
+          </div>
+          <p class="muted">GPA 3.85 / 4.0</p>
         </article>
       </div>
     </section>
@@ -320,8 +375,7 @@
     <section class="section leetcode-section" id="leetcode">
       <div class="reveal section-heading">
         <p class="eyebrow">Practice log</p>
-        <h2>LeetCode</h2>
-        <p>Live from my public LeetCode profile &mdash; mostly SQL and Python.</p>
+        <h2 class="with-logo"><img src="https://cdn.simpleicons.org/leetcode" alt="">LeetCode</h2>
       </div>
       <div class="reveal lc-card terminal" data-lc>
         <div class="terminal-bar">
@@ -360,7 +414,7 @@
       <div>
         <p class="eyebrow">Connect</p>
         <h2>Let's build useful AI systems.</h2>
-        <p>Open to AI/ML engineering, data science, applied LLM, computer vision, and software-oriented analytics roles. U.S. work authorization, no sponsorship needed.</p>
+        <p>Open to AI/ML engineering roles. U.S. work authorization, no sponsorship needed.</p>
       </div>
       <div class="contact-actions">
         <a class="button primary" href="mailto:xtan4@uw.edu">xtan4@uw.edu</a>
