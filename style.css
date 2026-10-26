@@ -133,11 +133,6 @@ summary:focus-visible {
   transition: color 150ms ease, background 150ms ease;
 }
 
-.nav-links a::before {
-  content: "./";
-  color: var(--dim);
-}
-
 .nav-links a:hover {
   color: var(--cyan);
   background: rgba(34, 211, 238, 0.08);
@@ -174,11 +169,6 @@ summary:focus-visible {
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-}
-
-.eyebrow::before {
-  content: "// ";
-  color: var(--dim);
 }
 
 h1,
